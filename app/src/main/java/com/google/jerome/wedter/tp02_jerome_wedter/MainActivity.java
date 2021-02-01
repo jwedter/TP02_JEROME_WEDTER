@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("nb2", textNb2);
                 startActivityForResult(intent, COMPUTE_CODE);
                 //Toast.makeText(MainActivity.this, "Tu veux calculer la somme de " + textNb1 + " et " + textNb2 + "  ->  " + textNb1 + " et "
-                   //     + textNb2 + " sont les valeurs des deux champs nb1 et nb2 respectivement", Toast.LENGTH_SHORT).show();
+                //     + textNb2 + " sont les valeurs des deux champs nb1 et nb2 respectivement", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -50,11 +50,11 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                    if (editTextNb1.getText().length() > 0 && editTextNb2.getText().length() > 0) {
-                        buttonCompute.setEnabled(true);
-                    } else {
-                        buttonCompute.setEnabled(false);
-                    }
+                if (editTextNb1.getText().length() > 0 && editTextNb2.getText().length() > 0) {
+                    buttonCompute.setEnabled(true);
+                } else {
+                    buttonCompute.setEnabled(false);
+                }
             }
 
             @Override
@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
             if (requestCode == COMPUTE_CODE && data != null) {
-                int result = data.getIntExtra("result", -1);
+                String result = data.getStringExtra("result");
                 Toast.makeText(this, "Result is " + result, Toast.LENGTH_SHORT).show();
             }
         } else Toast.makeText(this, "Error!", Toast.LENGTH_SHORT).show();

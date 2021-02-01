@@ -32,9 +32,9 @@ public class ComputeActivity extends AppCompatActivity {
         String nb1 = intent.getStringExtra("nb1");
         String nb2 = intent.getStringExtra("nb2");
 
-       textViewNb1.setText("Nombre 1 : " + nb1);
-       textViewNb2.setText("Nombre 2 : " + nb2);
-       initViews();
+        textViewNb1.setText("Nombre 1 : " + nb1);
+        textViewNb2.setText("Nombre 2 : " + nb2);
+        initViews();
     }
 
     private void initViews(){
@@ -49,7 +49,7 @@ public class ComputeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Integer result = Integer.parseInt(nb1) + Integer.parseInt(nb2);
-                intent.putExtra("result", result);
+                intent.putExtra("result", String.valueOf(result));
                 setResult(RESULT_OK, intent);
                 finish();
             }
@@ -60,7 +60,7 @@ public class ComputeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Integer result = Integer.parseInt(nb1)  - Integer.parseInt(nb2);
-                intent.putExtra("result", result);
+                intent.putExtra("result",String.valueOf(result));
                 setResult(RESULT_OK, intent);
                 finish();
             }
@@ -71,7 +71,7 @@ public class ComputeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Integer result = Integer.parseInt(nb1) * Integer.parseInt(nb2);
-                intent.putExtra("result", result);
+                intent.putExtra("result", String.valueOf(result));
                 setResult(RESULT_OK, intent);
                 finish();
             }
@@ -82,8 +82,8 @@ public class ComputeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (Integer.parseInt(nb2)!=0) {
-                    int result = Integer.parseInt(nb1) /Integer.parseInt(nb2);
-                    intent.putExtra("result", result);
+                    float result = Float.parseFloat(nb1) /Float.parseFloat(nb2);
+                    intent.putExtra("result", String.valueOf(result));
                     setResult(RESULT_OK, intent);
                     finish();
                 } else finish();
